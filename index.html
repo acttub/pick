@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>명대사 월드컵 — 내가 연기해보고 싶은 장면 | acttub</title>
+<meta name="description" content="연기해보고 싶은 장면만 남기는 16강 토너먼트. 마지막에 남은 한 장면이 품은 질문을 만나보세요.">
+<link rel="canonical" href="https://pick.acttub.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pick.acttub.com/">
+<meta property="og:title" content="명대사 월드컵 — 내가 연기해보고 싶은 장면">
+<meta property="og:description" content="16개의 장면 중, 끝까지 남길 한 장면은?">
+<meta property="og:image" content="https://pick.acttub.com/og.jpg">
+<meta property="og:site_name" content="acttub">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+
+<!-- 방문 계측. vercel.json이 catch-all 폴백을 쓰지 않는 이유가 이 경로다 —
+     폴백이 /_vercel/* 를 삼키면 이 스크립트가 404가 되고 계측이 조용히 죽는다. -->
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="bg-neutral text-ink font-sans antialiased">
+
+<!-- 문장은 전부 copy.js에서 주입한다. 이 파일에는 화면 골격만 둔다. -->
+<div class="mx-auto max-w-[480px] px-[20px] pb-xxl">
+
+  <section id="screen-start" hidden>
+    <div class="rise mt-lg rounded-lg px-lg py-xl text-center text-white"
+         style="background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));">
+      <div class="text-body-md font-bold opacity-90" data-copy="start.brand"></div>
+      <h1 class="mt-md text-h1" data-copy-html="start.title"></h1>
+      <p class="mt-[12px] text-body-md opacity-[0.92]" data-copy-html="start.lead"></p>
+    </div>
+
+    <div id="friend-note" class="card mt-md px-lg py-[20px] text-center" hidden>
+      <div class="text-body-sm font-semibold text-primary" data-copy="friend.label"></div>
+      <div id="friend-scene" class="mt-sm text-subtitle font-bold break-keep"></div>
+      <div class="mt-sm text-body-md text-ink-sub" data-copy="friend.ask"></div>
+    </div>
+
+    <button id="btn-start" class="btn btn-primary mt-lg" data-copy="start.button"></button>
+    <p class="mt-md text-label text-ink-tertiary text-center font-medium" data-copy="start.notice"></p>
+  </section>
+
+  <section id="screen-match" hidden>
+    <div class="mt-lg mb-md text-center">
+      <span id="round-chip" class="inline-block rounded-pill bg-primary-soft px-[14px] py-[6px] text-body-sm font-semibold text-primary-strong"></span>
+      <h2 class="mt-[12px] text-h3" data-copy="match.question"></h2>
+    </div>
+    <button id="card-a" class="card tappable block w-full border-0 p-lg text-left font-sans text-ink hover:bg-surface-sub"></button>
+    <div class="my-[12px] text-center text-body-sm font-semibold text-ink-tertiary" data-copy="match.vs"></div>
+    <button id="card-b" class="card tappable block w-full border-0 p-lg text-left font-sans text-ink hover:bg-surface-sub"></button>
+  </section>
+
+  <section id="screen-result" hidden>
+    <p class="mt-xl text-center text-body-md font-semibold text-primary" data-copy="result.eyebrow"></p>
+    <h2 id="result-title" class="mt-sm text-center text-h2"></h2>
+
+    <div id="winner-card" class="card mt-lg p-lg text-center"></div>
+
+    <div class="card mt-lg p-lg">
+      <p id="reflect-intro" class="text-subtitle break-keep"></p>
+      <p class="mt-[20px] text-body-sm font-semibold text-ink-tertiary" data-copy="result.questionLabel"></p>
+      <ul id="reflect-questions" class="mt-sm list-none"></ul>
+      <p class="mt-[20px] text-body-md text-ink-sub break-keep" data-copy="result.ownership"></p>
+    </div>
+
+    <p class="mt-lg text-center text-body-md text-ink-sub break-keep" data-copy="result.bridge"></p>
+
+    <div class="mt-md space-y-sm">
+      <button id="btn-save"  class="btn btn-primary"   data-copy="result.buttons.save"></button>
+      <a      id="btn-core"  class="btn btn-outline"   data-copy="result.buttons.core" href="#" rel="noopener"></a>
+      <button id="btn-share" class="btn btn-secondary" data-copy="result.buttons.share"></button>
+      <button id="btn-retry" class="btn btn-secondary" data-copy="result.buttons.retry"></button>
+    </div>
+  </section>
+
+  <p class="mt-xl text-center text-label leading-normal text-ink-tertiary font-medium">
+    <span data-copy="footer.line1"></span><br>
+    <span data-copy="footer.line2"></span><br>
+    <a id="link-insta" class="mt-sm inline-block text-ink-tertiary underline"
+       href="https://www.instagram.com/acttub_com" target="_blank" rel="noopener"
+       data-copy="footer.instagram"></a>
+  </p>
+</div>
+
+<div id="toast"
+     class="pointer-events-none fixed bottom-xl left-1/2 -translate-x-1/2 rounded-pill bg-ink px-[20px] py-[10px] text-body-md text-white opacity-0 transition-opacity duration-200"
+     style="box-shadow: 0 8px 24px rgb(0 0 0 / 0.16);"></div>
+
+<canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
+
+<script src="/copy.js"></script>
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* source(none)으로 자동 탐지를 끄고 실제 마크업만 스캔한다. 이게 없으면 Tailwind가 저장소 전체를
+   훑어 AGENTS.md·README의 클래스처럼 보이는 문자열까지 CSS로 만들어낸다.
+   app.js는 클래스 문자열을 만들어 넣으므로 같이 스캔한다. */
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../app.js";
+
+/* ── brand/DESIGN.md 토큰 → Tailwind 테마 ──────────────────────────────
+   내부 디자인 정본에서 생성한 테마를 그대로 옮긴 것이다.
+   값을 바꿀 일이 생기면 정본을 고치고 다시 생성해서 이 블록을 갈아끼운다.
+   이름을 프로젝트 사정에 맞춰 바꾸지 않는다 — 프로젝트마다 다른 이름을 쓰면 정본과 대조할 수 없다.
+   라이트 전용이다. 어두운 배경을 만들지 않는다. */
+@theme {
+  --color-primary: #0a79fb;
+  --color-primary-strong: #0355f1;
+  --color-primary-deep: #0243c4;
+  --color-primary-soft: #e8f3ff;
+  --color-primary-soft-hover: #d8ebff;
+  --color-gradient-start: #44c0fd;
+  --color-gradient-end: #0355f1;
+  --color-neutral: #f2f4f6;
+  --color-surface: #ffffff;
+  --color-surface-sub: #f9fafb;
+  --color-ink: #191f28;
+  --color-ink-sub: #4e5968;
+  --color-ink-tertiary: #6b7684;
+  --color-placeholder: #8b95a1;
+  --color-line: #e5e8eb;
+
+  --font-sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-h1: 1.875rem;
+  --text-h1--font-weight: 700;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h1--line-height: 1.33;
+  --text-h2: 1.375rem;
+  --text-h2--font-weight: 700;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h2--line-height: 1.36;
+  --text-h3: 1.25rem;
+  --text-h3--font-weight: 600;
+  --text-h3--line-height: 1.4;
+  --text-subtitle: 1rem;
+  --text-subtitle--font-weight: 600;
+  --text-subtitle--line-height: 1.5;
+  --text-body-lg: 1rem;
+  --text-body-lg--font-weight: 500;
+  --text-body-lg--line-height: 1.6;
+  --text-body-md: 0.9375rem;
+  --text-body-md--font-weight: 500;
+  --text-body-md--line-height: 1.6;
+  --text-body-sm: 0.8125rem;
+  --text-body-sm--font-weight: 500;
+  --text-body-sm--line-height: 1.54;
+  --text-label: 0.75rem;
+  --text-label--font-weight: 600;
+  --text-label--line-height: 1.5;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 64px;
+
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+/* ── Pretendard ───────────────────────────────────────────────────────
+   index.html·copy.js·data.js에 실제로 쓰인 글자만 서브셋한다.
+   문구를 고치면 build-fonts.py를 다시 돌린다 — 안 돌리면 새 글자가 시스템 폰트로 렌더된다.
+   이 브랜드의 가장 얇은 굵기는 500이다(Regular 파일이 없다). */
+@font-face {
+  font-family: Pretendard; font-style: normal; font-weight: 500;
+  font-display: swap; src: url(/fonts/pretendard-500.woff2) format("woff2");
+}
+@font-face {
+  font-family: Pretendard; font-style: normal; font-weight: 600;
+  font-display: swap; src: url(/fonts/pretendard-600.woff2) format("woff2");
+}
+@font-face {
+  font-family: Pretendard; font-style: normal; font-weight: 700;
+  font-display: swap; src: url(/fonts/pretendard-700.woff2) format("woff2");
+}
+
+/* ── 공통 표면 ────────────────────────────────────────────────────────
+   그릇(면·모서리·그림자)과 눌림·포커스만 묶는다. 레이아웃은 마크업에서 유틸리티로 준다.
+   pressed는 배경색 이동 + scale(0.98)까지. 그림자·크기 연출을 더하지 않는다.
+
+   @layer components가 아니라 @utility로 두는 이유: Tailwind v4는 components 레이어의
+   클래스를 @apply로 다시 쓸 수 없다("Cannot apply unknown utility class"). .btn이 tappable을
+   재사용해야 하므로 유틸리티여야 한다. */
+@utility card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+@utility tappable {
+  /* 곡선은 CSS 키워드 ease-out이다. Tailwind의 ease-out 유틸리티는 곡선이 다르다. */
+  transition-property: background-color, transform;
+  transition-duration: 120ms;
+  transition-timing-function: ease-out;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active { transform: scale(0.98); }
+  &:focus-visible { outline: 1.5px solid var(--color-primary); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
+@layer components {
+  .btn {
+    @apply tappable block w-full rounded-md border-0 py-[14px] px-md text-subtitle font-sans cursor-pointer text-center;
+  }
+  .btn-primary { @apply bg-primary-strong text-white; }
+  .btn-primary:hover { @apply bg-primary-deep; }
+
+  /* 코어로 잇는 버튼 자리. 채워진 파랑 두 개를 나란히 두면 위계가 사라져
+     어느 것도 주된 행동으로 읽히지 않는다 — 그래서 테두리 한 겹으로 격을 나눈다. */
+  .btn-outline { @apply bg-surface text-primary-strong; box-shadow: inset 0 0 0 1.5px var(--color-primary); }
+  .btn-outline:hover { @apply bg-primary-soft; }
+
+  .btn-secondary { @apply bg-primary-soft text-primary-strong; }
+  .btn-secondary:hover { @apply bg-primary-soft-hover; }
+}
+
+/* ── 진입 모션 ────────────────────────────────────────────────────────
+   80~240ms, 곧은 곡선. 탄성·바운스·시차 등장(stagger) 없이 한 번에 들어온다. */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .22s cubic-bezier(.2, .8, .2, 1) backwards; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tappable { transition: none; }
+}

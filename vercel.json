@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "rewrites": [
+    { "source": "/r16", "destination": "/index.html" },
+    { "source": "/r8", "destination": "/index.html" },
+    { "source": "/r4", "destination": "/index.html" },
+    { "source": "/final", "destination": "/index.html" },
+    { "source": "/result/:tag", "destination": "/index.html" },
+    { "source": "/with/:index", "destination": "/index.html" }
+  ]
+}
