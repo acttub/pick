@@ -6,11 +6,11 @@
   "buildCommand": "",
   "installCommand": "",
   "rewrites": [
-    { "source": "/r16", "destination": "/index.html" },
-    { "source": "/r8", "destination": "/index.html" },
-    { "source": "/r4", "destination": "/index.html" },
-    { "source": "/final", "destination": "/index.html" },
-    { "source": "/result/:tag", "destination": "/index.html" },
-    { "source": "/with/:index", "destination": "/index.html" }
+    { "source": "/r16", "destination": "/" },
+    { "source": "/r8", "destination": "/" },
+    { "source": "/r4", "destination": "/" },
+    { "source": "/final", "destination": "/" },
+    { "source": "/result/:tag", "destination": "/" },
+    { "source": "/with/:index", "destination": "/" }
   ]
 }
