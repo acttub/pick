@@ -69,9 +69,37 @@
 }
 
 @layer components {
-  .btn {
-    @apply tappable block w-full rounded-md border-0 py-md px-md text-subtitle font-sans cursor-pointer text-center;
+  /* ── 상단바 ──
+     acttub 가족임을 알리는 첫 신호다. 흰 면 위 파란 워드마크 —
+     `planning/웹/코어웹-재설계-2026-07-27`의 .topbar/.wordmark를 그대로 옮겼다.
+     그라데이션은 쓰지 않는다: DESIGN.md `## Colors`에서 그라데이션은
+     로고·아바타·스플래시 같은 브랜드 '표면' 전용이고, 헤더 표식은 워드마크다.
+     폭·여백은 .tier-shell과 같은 변수를 써서 아래 콘텐츠와 왼쪽 선이 맞는다. */
+  /* .tier-root가 이미 safe-top만큼 내려놨으므로 그 값만큼 도로 끌어올려 노치 뒤까지 흰 면을
+     칠하고, 같은 값을 안쪽 패딩으로 돌려줘 워드마크는 노치 아래에 남게 한다. 이렇게 안 하면
+     흰 상단바 위에 회색(neutral) 띠가 한 줄 생긴다 — 생성물인 responsive-base.css는
+     고치지 않으므로 여기서 상쇄한다. */
+  .topbar {
+    @apply bg-surface;
+    margin-top: calc(var(--safe-top) * -1);
+    padding-top: var(--safe-top);
   }
+  .topbar-in {
+    @apply mx-auto flex min-h-[64px] w-full items-center gap-[12px];
+    max-width: var(--content-max);
+    padding-left: calc(var(--gutter) + var(--safe-left));
+    padding-right: calc(var(--gutter) + var(--safe-right));
+  }
+  .wordmark { @apply text-[19px] font-bold tracking-[-0.01em] text-primary-strong; }
+  .session-name { @apply min-w-0 truncate text-[14px] font-medium text-ink-tertiary; }
+
+  /* 자동 폭이 기본이다. 전폭이 필요한 자리에만 btn-block을 붙인다 —
+     전폭 버튼만 쌓으면 화면이 버튼 벽으로 읽힌다. */
+  .btn {
+    @apply tappable inline-flex min-h-[48px] items-center justify-center gap-sm
+           rounded-md border-0 px-[22px] py-[14px] text-subtitle font-sans cursor-pointer text-center;
+  }
+  .btn-block { @apply w-full; }
   .btn-primary { @apply bg-primary-strong text-white; }
   .btn-primary:hover { @apply bg-primary-deep; }
 
@@ -80,12 +108,30 @@
   .btn-secondary { @apply bg-primary-soft text-primary-strong; }
   .btn-secondary:hover { @apply bg-primary-soft-hover; }
 
-  /* 3순위 행동(다시 하기). 버튼 모양을 벗기고 탭 영역만 44px로 남긴다. */
+  /* 3순위 행동(다시 하기). 회색 밑줄이 아니라 파란 글자다 —
+     재설계본의 .linkish와 같다. 밑줄은 본문 속 인라인 링크의 표식이라
+     독립 액션에 쓰면 '각주'처럼 읽힌다. 탭 영역만 44px로 남긴다. */
   .btn-quiet {
-    @apply tappable inline-flex min-h-[44px] items-center justify-center px-md
-           bg-transparent border-0 text-body-sm text-ink-sub underline cursor-pointer font-sans;
+    @apply tappable inline-flex min-h-[44px] items-center justify-start p-0
+           bg-transparent border-0 text-body-sm font-semibold text-primary-strong
+           no-underline cursor-pointer font-sans;
   }
-  .btn-quiet:hover { @apply text-ink; }
+  .btn-quiet:hover { @apply text-primary-deep; }
+
+  /* 연한 파랑 판. 재설계본의 .nextq — 배우에게 건네는 안심·다음 질문을 담는다.
+     카드 안에서 한 덩어리만 색을 갖게 해 시선을 거기서 멈추게 한다. */
+  .softnote {
+    @apply rounded-md bg-primary-soft px-[18px] py-md text-body-md text-primary-deep;
+  }
+
+  /* 파란 점 불릿. 재설계본의 .saidlist — 번호도 회색 판도 쓰지 않는다.
+     번호는 순서가 있다는 주장이고, 이 질문들엔 순서가 없다. */
+  .dot-list { @apply m-0 flex list-none flex-col gap-md p-0; }
+  .dot-list > li { @apply flex items-start gap-[10px] text-body-md text-ink; }
+  .dot-list > li::before {
+    content: "";
+    @apply mt-[10px] block h-[5px] w-[5px] shrink-0 rounded-pill bg-primary;
+  }
 
   /* 대결의 앵커. chip이 아니다 — chip은 정본에서 시스템 상태 표시 전용이라
      대결 마커로 쓰면 그 규정이 흐려진다. 흰 글자가 올라가므로 면은 primary-strong. */

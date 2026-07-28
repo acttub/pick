@@ -196,15 +196,11 @@
     $("winner-source").textContent = scene.work + " · " + scene.meta;
     $("winner-situation").textContent = scene.situation;
     $("reflect-intro").textContent = r.intro;
-    $("reflect-questions").replaceChildren(...r.questions.map(function (q, i) {
+    /* 점 불릿은 .dot-list의 ::before가 그린다 — 번호도 회색 판도 쓰지 않는다.
+     * 번호는 순서가 있다는 주장이고 이 질문들엔 순서가 없다. */
+    $("reflect-questions").replaceChildren(...r.questions.map(function (q) {
       var li = document.createElement("li");
-      li.className = "mt-sm flex gap-[10px] rounded-md bg-surface-sub px-md py-[14px] text-body-md text-ink";
-      var num = document.createElement("span");
-      num.className = "font-bold text-primary";
-      num.textContent = String(i + 1);
-      var text = document.createElement("span");
-      text.textContent = q;
-      li.append(num, text);
+      li.textContent = q;
       return li;
     }));
     $("btn-core").href = CORE_URL;

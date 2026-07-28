@@ -31,14 +31,18 @@
      tier-root / tier-shell은 brand/responsive-base.css의 3단 티어 셸이다
      (phone 화면−40 · tablet 560 · desktop 760). 폭을 여기서 다시 정하지 않는다. -->
 <div class="tier-root">
-<div class="tier-shell pt-lg">
 
-  <!-- 화면이 바뀌어도 움직이지 않는 지속 요소다. 등장 모션을 주지 않는다. -->
-  <header class="flex items-center gap-sm">
-    <span class="h-7 w-7 shrink-0 rounded-pill"
-          style="background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));"></span>
-    <span class="text-body-sm font-bold text-ink-sub" data-copy="start.brand"></span>
-  </header>
+<!-- 화면이 바뀌어도 움직이지 않는 지속 요소다. 등장 모션을 주지 않는다.
+     .tier-shell 밖에 둬서 흰 면이 화면 폭을 꽉 채운다 — 안쪽 .topbar-in이
+     같은 --gutter/--content-max를 쓰므로 아래 본문과 왼쪽 선이 맞는다. -->
+<header class="topbar">
+  <div class="topbar-in">
+    <span class="wordmark" data-copy="brand.wordmark"></span>
+    <span class="session-name" data-copy="brand.service"></span>
+  </div>
+</header>
+
+<div class="tier-shell pt-lg">
 
   <section id="screen-start" hidden>
     <div class="rise mt-xl">
@@ -47,21 +51,20 @@
     </div>
 
     <div id="friend-note" class="card mt-lg p-[20px]" hidden>
-      <div class="text-body-sm font-semibold text-primary" data-copy="friend.label"></div>
+      <div class="text-label text-primary-strong" data-copy="friend.label"></div>
       <div id="friend-scene" class="mt-sm text-subtitle font-bold"></div>
       <div class="mt-sm text-body-md text-ink-sub" data-copy="friend.ask"></div>
     </div>
 
-    <!-- 카드 뭉치. 16장 중 한 장을 넘겨보는 게임이라는 걸 그림 없이 알린다.
-         뒷장 두 겹은 장식이 아니라 "더 있다"는 표시라 대사를 담지 않는다. -->
-    <div class="mt-xl">
-      <div class="mx-[10%] h-[12px] rounded-t-lg bg-white/55"></div>
-      <div class="mx-[5%] h-[12px] rounded-t-lg bg-white/85"></div>
-      <div id="peek-card" class="card p-[20px]"></div>
-    </div>
+    <!-- 16장 중 한 장을 미리 보여준다. 뒤에 반투명 카드를 겹쳐 "더 있다"를 표시했었지만
+         회색 배경 위에서 흰 반투명 띠가 렌더 이음새처럼 보였다. 장수는 lead 문장이
+         이미 말하므로(16개의 장면이 있어요) 그림으로 다시 말하지 않는다. -->
+    <div id="peek-card" class="card mt-xl p-[20px]"></div>
 
-    <button id="btn-start" class="btn btn-primary mt-xl" data-copy="start.button"></button>
-    <p class="mt-sm text-label text-ink-sub" data-copy="start.notice"></p>
+    <div class="mt-xl">
+      <button id="btn-start" class="btn btn-primary" data-copy="start.button"></button>
+    </div>
+    <p class="mt-md text-label text-ink-sub" data-copy="start.notice"></p>
   </section>
 
   <section id="screen-match" hidden>
@@ -90,9 +93,12 @@
     <!-- 우승 장면은 흰 카드가 아니라 세로선 표식으로 세운다. 화면의 강조를 하나로 두려면
          카드가 둘이면 안 된다 — 되비춤 카드가 유일한 카드다. -->
     <div class="mt-xl">
-      <p class="text-body-sm font-semibold text-primary" data-copy="result.eyebrow"></p>
+      <p class="text-label text-primary-strong" data-copy="result.eyebrow"></p>
+      <!-- 글자를 키워서 주인공을 만들지 않는다. brand/TASTE.md에서 22px안(D1)은 기각됐고
+           16px + 맨 윗자리 + 파란 세로선(D2)이 채택됐다. 코어웹 재설계본의
+           연습 노트 문장(.lead .sent = 16px/600)과 같은 크기다. -->
       <div class="winner-mark mt-sm">
-        <p id="winner-line" class="text-h2"></p>
+        <p id="winner-line" class="text-body-lg font-semibold"></p>
         <p id="winner-source" class="mt-xs text-body-sm font-semibold text-ink-sub"></p>
       </div>
       <p id="winner-situation" class="mt-md text-body-md text-ink-sub"></p>
@@ -100,20 +106,25 @@
 
     <div class="card mt-xl p-[20px]">
       <p id="reflect-intro" class="text-subtitle"></p>
-      <p class="mt-md text-body-sm font-semibold text-ink-tertiary" data-copy="result.questionLabel"></p>
-      <ul id="reflect-questions" class="mt-sm list-none"></ul>
-      <p class="mt-md text-body-md text-ink-sub" data-copy="result.ownership"></p>
+      <p class="mt-lg text-label text-primary-strong" data-copy="result.questionLabel"></p>
+      <ul id="reflect-questions" class="dot-list mt-md"></ul>
+      <!-- 카드 안에서 색을 갖는 덩어리는 이것 하나뿐이다. 마지막에 시선이 여기서 멈춘다. -->
+      <p class="softnote mt-lg" data-copy="result.ownership"></p>
     </div>
 
     <!-- 이 문장은 바로 아래 코어 버튼이 무엇인지 설명한다. 둘을 떼어놓지 않는다. -->
     <p class="mt-xl text-body-md text-ink-sub" data-copy="result.bridge"></p>
 
-    <div class="mt-md space-y-sm">
-      <a      id="btn-core"  class="btn btn-primary"   data-copy="result.buttons.core" href="#" rel="noopener"></a>
-      <button id="btn-save"  class="btn btn-secondary" data-copy="result.buttons.save"></button>
-      <button id="btn-share" class="btn btn-secondary" data-copy="result.buttons.share"></button>
+    <!-- 코어로 가는 버튼만 전폭이다. 저장·공유는 자동 폭으로 한 줄에 놓아
+         "다음 행동 하나 + 곁들이 둘"이 모양으로 읽히게 한다. -->
+    <a id="btn-core" class="btn btn-primary btn-block mt-md" data-copy="result.buttons.core" href="#" rel="noopener"></a>
+    <!-- grow + basis-[200px]: 폭이 되면 둘이 같은 너비로 한 줄에 서고, 안 되면 각자 전폭으로
+         내려간다. 자동 폭 그대로 두면 줄바꿈된 뒤 길이가 제각각인 계단이 생긴다. -->
+    <div class="mt-sm flex flex-wrap gap-sm">
+      <button id="btn-save"  class="btn btn-secondary grow basis-[200px]" data-copy="result.buttons.save"></button>
+      <button id="btn-share" class="btn btn-secondary grow basis-[200px]" data-copy="result.buttons.share"></button>
     </div>
-    <div class="mt-sm flex justify-center">
+    <div class="mt-sm">
       <button id="btn-retry" class="btn-quiet" data-copy="result.buttons.retry"></button>
     </div>
   </section>
@@ -123,7 +134,7 @@
       <span data-copy="footer.line1"></span><br>
       <span data-copy="footer.line2"></span>
     </p>
-    <a id="link-insta" class="inline-flex min-h-[44px] items-center text-label text-ink-sub underline"
+    <a id="link-insta" class="inline-flex min-h-[44px] items-center text-body-sm font-semibold text-primary-strong no-underline"
        href="https://www.instagram.com/acttub_com" target="_blank" rel="noopener"
        data-copy="footer.instagram"></a>
   </footer>
