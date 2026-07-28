@@ -58,7 +58,14 @@
    * 대결·결과 경로로 직접 들어오거나 새로고침하면 진행 상태가 없다.
    * 상태를 복구하지 않고 시작 화면으로 되돌린다 — 15번 선택은 다시 하면 되는 비용이고,
    * 상태 직렬화는 이 규모에 과하다. 빈 화면만 안 보이게 하는 것이 목적이다. */
+  /* 시작 화면의 카드 뭉치 맨 앞장. 매번 다른 장면을 보여 준다 —
+   * 어떤 대사들이 나오는지 한 장이라도 보이지 않으면 "16개의 장면"이 숫자로만 남는다. */
+  function renderPeek() {
+    renderCard($("peek-card"), SCENES[Math.floor(Math.random() * SCENES.length)]);
+  }
+
   function resolveEntry() {
+    renderPeek();
     var m = location.pathname.match(/^\/with\/(\d+)\/?$/);
     if (m) {
       var scene = SCENES[parseInt(m[1], 10)];
@@ -76,10 +83,14 @@
   }
 
   // ── 토너먼트 ───────────────────────────────────────────────────────
-  var pool = [];      // 이번 라운드 참가 장면
-  var nextPool = [];  // 다음 라운드 진출 장면
-  var matchIndex = 0; // 이번 라운드 안의 경기 번호
+  var pool = [];         // 이번 라운드 참가 장면
+  var nextPool = [];     // 다음 라운드 진출 장면
+  var matchIndex = 0;    // 이번 라운드 안의 경기 번호
   var champion = null;
+  /* 진행 표시는 라운드가 아니라 전체 경기 수로 센다. 16장이면 8+4+2+1 = 15경기다.
+   * 라운드 안 번호(3/8)로 세면 라운드가 넘어갈 때마다 되감겨서, 옆의 진행바와 어긋난다. */
+  var totalMatches = 0;
+  var doneMatches = 0;
 
   function shuffle(arr) {
     var a = arr.slice();
@@ -110,14 +121,21 @@
     nextPool = [];
     matchIndex = 0;
     champion = null;
+    totalMatches = pool.length - 1;
+    doneMatches = 0;
     go(ROUND_PATH[pool.length]);
     show("screen-match");
     renderMatch();
   }
 
   function renderMatch() {
-    $("round-chip").textContent =
-      C.match.rounds[pool.length] + " · " + (matchIndex + 1) + "/" + (pool.length / 2);
+    $("round-name").textContent = C.match.rounds[pool.length];
+    /* 카운터와 진행바는 같은 값을 가리켜야 한다. 바에 doneMatches(끝낸 경기)를 주면
+     * "3 / 15"인데 바는 2/15만큼만 차서 한 칸 뒤처져 보이고, 마지막 경기에서도 100%가 안 된다.
+     * 첫 경기에서 바가 텅 비어 고장난 것처럼 보이던 것도 같이 해결된다. */
+    var atMatch = doneMatches + 1;
+    $("round-count").textContent = C.match.counter(atMatch, totalMatches);
+    $("progress-fill").style.width = (atMatch / totalMatches * 100) + "%";
     renderCard($("card-a"), pool[matchIndex * 2]);
     renderCard($("card-b"), pool[matchIndex * 2 + 1]);
   }
@@ -125,8 +143,8 @@
   function renderCard(el, scene) {
     el.replaceChildren(
       row("text-body-sm font-semibold text-primary", scene.work + " ", "text-ink-tertiary font-medium", scene.meta),
-      line("mt-sm text-h3 break-keep", scene.line),
-      line("mt-sm text-body-sm text-ink-sub break-keep", scene.situation)
+      line("mt-sm text-h3", scene.line),
+      line("mt-sm text-body-sm text-ink-sub", scene.situation)
     );
   }
 
@@ -159,6 +177,7 @@
 
     nextPool.push(pool[matchIndex * 2 + (side === "a" ? 0 : 1)]);
     matchIndex++;
+    doneMatches++;
     if (matchIndex * 2 < pool.length) { renderMatch(); return; }
 
     if (nextPool.length === 1) { finish(nextPool[0]); return; }
@@ -173,17 +192,19 @@
     champion = scene;
     var r = C.reflect[scene.tag];
 
-    $("result-title").textContent = scene.work;
-    $("winner-card").replaceChildren(
-      row("text-body-md font-semibold text-primary", scene.work + " ", "text-ink-tertiary font-medium", scene.meta),
-      line("mt-[12px] text-h2 break-keep", scene.line),
-      line("mt-[12px] text-body-md text-ink-sub break-keep", scene.situation)
-    );
+    $("winner-line").textContent = scene.line;
+    $("winner-source").textContent = scene.work + " · " + scene.meta;
+    $("winner-situation").textContent = scene.situation;
     $("reflect-intro").textContent = r.intro;
-    $("reflect-questions").replaceChildren(...r.questions.map(function (q) {
+    $("reflect-questions").replaceChildren(...r.questions.map(function (q, i) {
       var li = document.createElement("li");
-      li.className = "mt-sm rounded-md bg-surface-sub px-md py-[14px] text-body-md text-ink break-keep";
-      li.textContent = q;
+      li.className = "mt-sm flex gap-[10px] rounded-md bg-surface-sub px-md py-[14px] text-body-md text-ink";
+      var num = document.createElement("span");
+      num.className = "font-bold text-primary";
+      num.textContent = String(i + 1);
+      var text = document.createElement("span");
+      text.textContent = q;
+      li.append(num, text);
       return li;
     }));
     $("btn-core").href = CORE_URL;

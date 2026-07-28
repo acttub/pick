@@ -2,7 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- viewport-fit=cover가 있어야 env(safe-area-inset-*)가 0이 아닌 값을 준다.
+     maximum-scale·user-scalable=no를 넣지 않는다 — 안드로이드 크롬이 그걸 지켜서 확대가 막힌다. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>명대사 월드컵 — 내가 연기해보고 싶은 장면 | acttub</title>
 <meta name="description" content="연기해보고 싶은 장면만 남기는 16강 토너먼트. 마지막에 남은 한 장면이 품은 질문을 만나보세요.">
 <link rel="canonical" href="https://pick.acttub.com/">
@@ -25,67 +27,108 @@
 </head>
 <body class="bg-neutral text-ink font-sans antialiased">
 
-<!-- 문장은 전부 copy.js에서 주입한다. 이 파일에는 화면 골격만 둔다. -->
-<div class="mx-auto max-w-[480px] px-[20px] pb-xxl">
+<!-- 문장은 전부 copy.js에서 주입한다. 이 파일에는 화면 골격만 둔다.
+     tier-root / tier-shell은 brand/responsive-base.css의 3단 티어 셸이다
+     (phone 화면−40 · tablet 560 · desktop 760). 폭을 여기서 다시 정하지 않는다. -->
+<div class="tier-root">
+<div class="tier-shell pt-lg">
+
+  <!-- 화면이 바뀌어도 움직이지 않는 지속 요소다. 등장 모션을 주지 않는다. -->
+  <header class="flex items-center gap-sm">
+    <span class="h-7 w-7 shrink-0 rounded-pill"
+          style="background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));"></span>
+    <span class="text-body-sm font-bold text-ink-sub" data-copy="start.brand"></span>
+  </header>
 
   <section id="screen-start" hidden>
-    <div class="rise mt-lg rounded-lg px-lg py-xl text-center text-white"
-         style="background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));">
-      <div class="text-body-md font-bold opacity-90" data-copy="start.brand"></div>
-      <h1 class="mt-md text-h1" data-copy-html="start.title"></h1>
-      <p class="mt-[12px] text-body-md opacity-[0.92]" data-copy-html="start.lead"></p>
+    <div class="rise mt-xl">
+      <h1 class="text-h1" data-copy-html="start.title"></h1>
+      <p class="mt-md text-body-md text-ink-sub" data-copy-html="start.lead"></p>
     </div>
 
-    <div id="friend-note" class="card mt-md px-lg py-[20px] text-center" hidden>
+    <div id="friend-note" class="card mt-lg p-[20px]" hidden>
       <div class="text-body-sm font-semibold text-primary" data-copy="friend.label"></div>
-      <div id="friend-scene" class="mt-sm text-subtitle font-bold break-keep"></div>
+      <div id="friend-scene" class="mt-sm text-subtitle font-bold"></div>
       <div class="mt-sm text-body-md text-ink-sub" data-copy="friend.ask"></div>
     </div>
 
-    <button id="btn-start" class="btn btn-primary mt-lg" data-copy="start.button"></button>
-    <p class="mt-md text-label text-ink-tertiary text-center font-medium" data-copy="start.notice"></p>
+    <!-- 카드 뭉치. 16장 중 한 장을 넘겨보는 게임이라는 걸 그림 없이 알린다.
+         뒷장 두 겹은 장식이 아니라 "더 있다"는 표시라 대사를 담지 않는다. -->
+    <div class="mt-xl">
+      <div class="mx-[10%] h-[12px] rounded-t-lg bg-white/55"></div>
+      <div class="mx-[5%] h-[12px] rounded-t-lg bg-white/85"></div>
+      <div id="peek-card" class="card p-[20px]"></div>
+    </div>
+
+    <button id="btn-start" class="btn btn-primary mt-xl" data-copy="start.button"></button>
+    <p class="mt-sm text-label text-ink-sub" data-copy="start.notice"></p>
   </section>
 
   <section id="screen-match" hidden>
-    <div class="mt-lg mb-md text-center">
-      <span id="round-chip" class="inline-block rounded-pill bg-primary-soft px-[14px] py-[6px] text-body-sm font-semibold text-primary-strong"></span>
-      <h2 class="mt-[12px] text-h3" data-copy="match.question"></h2>
+    <!-- 라운드 이름은 사다리 위치, 진행바·카운터는 전체 15경기 중 어디쯤인지를 말한다.
+         둘이 다른 것을 세므로 카운터도 전체 기준으로 맞춘다 — 섞으면 바와 숫자가 어긋난다. -->
+    <div class="mt-lg">
+      <div class="flex items-center justify-between">
+        <span id="round-name" class="text-body-md font-bold text-ink"></span>
+        <span id="round-count" class="text-body-sm font-semibold text-ink-sub"></span>
+      </div>
+      <div class="mt-sm h-[6px] w-full overflow-hidden rounded-pill bg-line">
+        <div id="progress-fill" class="h-full rounded-pill bg-primary-strong transition-[width] duration-200 ease-out" style="width: 0%"></div>
+      </div>
     </div>
-    <button id="card-a" class="card tappable block w-full border-0 p-lg text-left font-sans text-ink hover:bg-surface-sub"></button>
-    <div class="my-[12px] text-center text-body-sm font-semibold text-ink-tertiary" data-copy="match.vs"></div>
-    <button id="card-b" class="card tappable block w-full border-0 p-lg text-left font-sans text-ink hover:bg-surface-sub"></button>
+
+    <h2 class="mt-lg text-h3" data-copy="match.question"></h2>
+
+    <div class="mt-md flex flex-col gap-sm desktop:flex-row desktop:items-stretch">
+      <button id="card-a" class="card tappable block w-full border-0 p-[20px] text-left font-sans text-ink hover:bg-surface-sub desktop:w-auto desktop:flex-1"></button>
+      <div class="vs-mark self-center" data-copy="match.vs"></div>
+      <button id="card-b" class="card tappable block w-full border-0 p-[20px] text-left font-sans text-ink hover:bg-surface-sub desktop:w-auto desktop:flex-1"></button>
+    </div>
   </section>
 
   <section id="screen-result" hidden>
-    <p class="mt-xl text-center text-body-md font-semibold text-primary" data-copy="result.eyebrow"></p>
-    <h2 id="result-title" class="mt-sm text-center text-h2"></h2>
-
-    <div id="winner-card" class="card mt-lg p-lg text-center"></div>
-
-    <div class="card mt-lg p-lg">
-      <p id="reflect-intro" class="text-subtitle break-keep"></p>
-      <p class="mt-[20px] text-body-sm font-semibold text-ink-tertiary" data-copy="result.questionLabel"></p>
-      <ul id="reflect-questions" class="mt-sm list-none"></ul>
-      <p class="mt-[20px] text-body-md text-ink-sub break-keep" data-copy="result.ownership"></p>
+    <!-- 우승 장면은 흰 카드가 아니라 세로선 표식으로 세운다. 화면의 강조를 하나로 두려면
+         카드가 둘이면 안 된다 — 되비춤 카드가 유일한 카드다. -->
+    <div class="mt-xl">
+      <p class="text-body-sm font-semibold text-primary" data-copy="result.eyebrow"></p>
+      <div class="winner-mark mt-sm">
+        <p id="winner-line" class="text-h2"></p>
+        <p id="winner-source" class="mt-xs text-body-sm font-semibold text-ink-sub"></p>
+      </div>
+      <p id="winner-situation" class="mt-md text-body-md text-ink-sub"></p>
     </div>
 
-    <p class="mt-lg text-center text-body-md text-ink-sub break-keep" data-copy="result.bridge"></p>
+    <div class="card mt-xl p-[20px]">
+      <p id="reflect-intro" class="text-subtitle"></p>
+      <p class="mt-md text-body-sm font-semibold text-ink-tertiary" data-copy="result.questionLabel"></p>
+      <ul id="reflect-questions" class="mt-sm list-none"></ul>
+      <p class="mt-md text-body-md text-ink-sub" data-copy="result.ownership"></p>
+    </div>
+
+    <!-- 이 문장은 바로 아래 코어 버튼이 무엇인지 설명한다. 둘을 떼어놓지 않는다. -->
+    <p class="mt-xl text-body-md text-ink-sub" data-copy="result.bridge"></p>
 
     <div class="mt-md space-y-sm">
-      <button id="btn-save"  class="btn btn-primary"   data-copy="result.buttons.save"></button>
-      <a      id="btn-core"  class="btn btn-outline"   data-copy="result.buttons.core" href="#" rel="noopener"></a>
+      <a      id="btn-core"  class="btn btn-primary"   data-copy="result.buttons.core" href="#" rel="noopener"></a>
+      <button id="btn-save"  class="btn btn-secondary" data-copy="result.buttons.save"></button>
       <button id="btn-share" class="btn btn-secondary" data-copy="result.buttons.share"></button>
-      <button id="btn-retry" class="btn btn-secondary" data-copy="result.buttons.retry"></button>
+    </div>
+    <div class="mt-sm flex justify-center">
+      <button id="btn-retry" class="btn-quiet" data-copy="result.buttons.retry"></button>
     </div>
   </section>
 
-  <p class="mt-xl text-center text-label leading-normal text-ink-tertiary font-medium">
-    <span data-copy="footer.line1"></span><br>
-    <span data-copy="footer.line2"></span><br>
-    <a id="link-insta" class="mt-sm inline-block text-ink-tertiary underline"
+  <footer class="mt-xxl pb-xl">
+    <p class="text-label leading-normal text-ink-sub">
+      <span data-copy="footer.line1"></span><br>
+      <span data-copy="footer.line2"></span>
+    </p>
+    <a id="link-insta" class="inline-flex min-h-[44px] items-center text-label text-ink-sub underline"
        href="https://www.instagram.com/acttub_com" target="_blank" rel="noopener"
        data-copy="footer.instagram"></a>
-  </p>
+  </footer>
+
+</div>
 </div>
 
 <div id="toast"

@@ -1,0 +1,2931 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "PHVF0",
+      "x": 0,
+      "y": 0,
+      "name": "as-is 1 시작",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        24,
+        20,
+        64,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "h43Rn",
+          "name": "본문",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Wr61R",
+              "name": "히어로",
+              "width": "fill_container",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 225,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$gradient-start",
+                    "position": 0
+                  },
+                  {
+                    "color": "$gradient-end",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-lg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zFbMf",
+                  "name": "브랜드",
+                  "fill": "#ffffffe6",
+                  "content": "acttub",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "DTJAj",
+                  "name": "제목묶음",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    16,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "X7Fk3",
+                      "name": "제목",
+                      "fill": "#ffffff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "내가 연기해보고\n싶은 장면",
+                      "lineHeight": 1.33,
+                      "textAlign": "center",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 30,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "BIU6Y",
+                      "name": "리드",
+                      "fill": "#ffffffeb",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "16개의 장면이 있어요.\n연기해보고 싶은 쪽만 남기다 보면,\n마지막 한 장면이 남아요.",
+                      "lineHeight": 1.6,
+                      "textAlign": "center",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "W7GLL",
+              "name": "행동",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d9QNrj",
+                  "name": "시작 버튼",
+                  "width": "fill_container",
+                  "fill": "$primary-strong",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pOVdz",
+                      "name": "라벨",
+                      "fill": "#ffffff",
+                      "content": "16강 시작하기",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "xjvaE",
+                  "name": "고지",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "대사는 한 줄씩만 인용했어요. 장면 설명은 저희가 적었습니다.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Vp8IO",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rHoyc",
+              "name": "푸터 줄",
+              "width": "fill_container",
+              "layout": "vertical",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dEi3l",
+                  "name": "푸터1",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "acttub — 질문 기반 연기 연습 파트너",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XzGuP",
+                  "name": "푸터2",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "인용된 대사의 저작권은 각 작품에 있습니다.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "KV6ho",
+              "name": "인스타",
+              "fill": "$ink-tertiary",
+              "content": "만들고 있는 팀 구경하기",
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZgOw3",
+      "x": 470,
+      "y": 0,
+      "name": "as-is 2 대결",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        24,
+        20,
+        64,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "zaDL3",
+          "name": "본문",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "a6tFdK",
+              "name": "머리",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kIPkY",
+                  "name": "라운드칩",
+                  "fill": "$primary-soft",
+                  "cornerRadius": "$radius-pill",
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oK4qD",
+                      "name": "칩라벨",
+                      "fill": "$primary-strong",
+                      "content": "16강 · 1/8",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "p9HUZ",
+                  "name": "질문",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "어느 장면을 연기해보고 싶나요?",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bNRKB",
+              "name": "대결",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JVBnp",
+                  "name": "카드 A",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000014",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aKsWt",
+                      "name": "출처",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uNfKh",
+                          "name": "작품",
+                          "fill": "$primary",
+                          "content": "아저씨",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l2WSZ",
+                          "name": "메타",
+                          "fill": "$ink-tertiary",
+                          "content": "영화 · 2010",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "z3RAy",
+                      "name": "대사",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“난 오늘만 산다.”",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tcUPi",
+                      "name": "상황",
+                      "fill": "$ink-sub",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "잃을 것이 없는 사람이, 잃을 것이 많은 사람들에게 하는 경고.",
+                      "lineHeight": 1.54,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "U4gqQ",
+                  "name": "VS",
+                  "fill": "$ink-tertiary",
+                  "content": "VS",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "GYeHp",
+                  "name": "카드 B",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000014",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vmKKt",
+                      "name": "출처",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qwaDb",
+                          "name": "작품",
+                          "fill": "$primary",
+                          "content": "살인의 추억",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "E1wdxx",
+                          "name": "메타",
+                          "fill": "$ink-tertiary",
+                          "content": "영화 · 2003",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "kvmdS",
+                      "name": "대사",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“밥은 먹고 다니냐.”",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "J3uDM",
+                      "name": "상황",
+                      "fill": "$ink-sub",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "놓아줄 수밖에 없는 용의자에게, 형사가 마지막으로 던지는 한 마디.",
+                      "lineHeight": 1.54,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ERwe5",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "sPuyz",
+              "name": "푸터 줄",
+              "width": "fill_container",
+              "layout": "vertical",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K4BLGK",
+                  "name": "푸터1",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "acttub — 질문 기반 연기 연습 파트너",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "A5Lfcz",
+                  "name": "푸터2",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "인용된 대사의 저작권은 각 작품에 있습니다.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "qHCn4",
+              "name": "인스타",
+              "fill": "$ink-tertiary",
+              "content": "만들고 있는 팀 구경하기",
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fT4Wa",
+      "x": 940,
+      "y": 0,
+      "name": "as-is 3 결과",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        40,
+        20,
+        64,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n3lHms",
+          "name": "본문",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "uOsvX",
+              "name": "머리",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HRKys",
+                  "name": "눈썹",
+                  "fill": "$primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "끝까지 남긴 장면",
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "x3t9TO",
+                  "name": "작품명",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "아저씨",
+                  "lineHeight": 1.36,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.44
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OO1z8",
+              "name": "우승 카드",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000014",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hCwwG",
+                  "name": "출처",
+                  "gap": 5,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y45JoF",
+                      "name": "작품",
+                      "fill": "$primary",
+                      "content": "아저씨",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nKbKK",
+                      "name": "메타",
+                      "fill": "$ink-tertiary",
+                      "content": "영화 · 2010",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "qkuio",
+                  "name": "대사",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“난 오늘만 산다.”",
+                  "lineHeight": 1.36,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "cm8PI",
+                  "name": "상황",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "잃을 것이 없는 사람이, 잃을 것이 많은 사람들에게 하는 경고.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bicwl",
+              "name": "되비춤 카드",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000014",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bW0Gj",
+                  "name": "되비춤",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "상대를 정면으로 마주 서는 장면이 남았어요.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "jkoIz",
+                  "name": "질문묶음",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kCdw0",
+                      "name": "질문라벨",
+                      "fill": "$ink-tertiary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "이런 장면 앞에서 해볼 만한 질문",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "S54CI",
+                      "name": "질문 1",
+                      "width": "fill_container",
+                      "fill": "$surface-sub",
+                      "cornerRadius": "$radius-md",
+                      "layout": "vertical",
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d7PsN",
+                          "name": "문장",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "이 인물은 이 순간 무엇을 걸고 있을까요?",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "r6kPrP",
+                      "name": "질문 2",
+                      "width": "fill_container",
+                      "fill": "$surface-sub",
+                      "cornerRadius": "$radius-md",
+                      "layout": "vertical",
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bXghv",
+                          "name": "문장",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "상대의 어떤 반응을 가장 두려워하고 있을까요?",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "L9ELYc",
+                      "name": "질문 3",
+                      "width": "fill_container",
+                      "fill": "$surface-sub",
+                      "cornerRadius": "$radius-md",
+                      "layout": "vertical",
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "df0PU",
+                          "name": "문장",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "첫마디를 꺼내기 직전, 이 인물의 호흡은 어땠을까요?",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "KV0cy",
+                  "name": "소유",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "답은 언제나 연기하는 사람의 것이에요.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "TMkZT",
+              "name": "다리",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "고른 건 장면이에요. 그 안에서 무엇을 할지는, 아직 안 골랐어요.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "$font-canvas",
+              "fontSize": 15,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "gCq8P",
+              "name": "버튼묶음",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                -8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gAJwj",
+                  "name": "저장",
+                  "width": "fill_container",
+                  "fill": "$primary-strong",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aSiko",
+                      "name": "라벨",
+                      "fill": "#ffffff",
+                      "content": "우승 장면 이미지로 저장",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "E1Jd7p",
+                  "name": "코어",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$primary",
+                  "strokeWidth": 1.5,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rJx45",
+                      "name": "라벨",
+                      "fill": "$primary-strong",
+                      "content": "acttub에서 질문으로 찾기 →",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "m5Bl2",
+                  "name": "공유",
+                  "width": "fill_container",
+                  "fill": "$primary-soft",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j9siTW",
+                      "name": "라벨",
+                      "fill": "$primary-strong",
+                      "content": "친구에게 링크 보내기",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q40QE",
+                  "name": "다시",
+                  "width": "fill_container",
+                  "fill": "$primary-soft",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j8KEJ",
+                      "name": "라벨",
+                      "fill": "$primary-strong",
+                      "content": "다시 하기",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OpsYu",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PMGk9",
+              "name": "푸터 줄",
+              "width": "fill_container",
+              "layout": "vertical",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fwccx",
+                  "name": "푸터1",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "acttub — 질문 기반 연기 연습 파트너",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "d55hk",
+                  "name": "푸터2",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "인용된 대사의 저작권은 각 작품에 있습니다.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "VIYYn",
+              "name": "인스타",
+              "fill": "$ink-tertiary",
+              "content": "만들고 있는 팀 구경하기",
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kGVZD",
+      "x": 0,
+      "y": 700,
+      "name": "새 1 시작",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        24,
+        20,
+        40,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "R4Eqm",
+          "name": "헤더",
+          "width": "fill_container",
+          "gap": 8,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PgIYE",
+              "name": "브랜드 마크",
+              "width": 28,
+              "height": 28,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 225,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$gradient-start",
+                    "position": 0
+                  },
+                  {
+                    "color": "$gradient-end",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-pill"
+            },
+            {
+              "type": "text",
+              "id": "C41bE",
+              "name": "워드마크",
+              "fill": "$ink-sub",
+              "content": "acttub",
+              "fontFamily": "$font-canvas",
+              "fontSize": 13,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BT9A9",
+          "name": "제목묶음",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Jlmr6",
+              "name": "제목",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aRCSg",
+                  "name": "눈썹",
+                  "fill": "$primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "16개의 장면 중",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XyP76",
+                  "name": "큰제목",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "내가 연기해보고\n싶은 장면 하나",
+                  "lineHeight": 1.33,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 30,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.6
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "YpaDv",
+              "name": "리드",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "연기해보고 싶은 쪽만 남기다 보면,\n마지막 한 장면이 남아요.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-canvas",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ODh9E",
+          "name": "장면 스택",
+          "width": "fill_container",
+          "height": 186,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "sX4DH",
+              "x": 36,
+              "y": 28,
+              "name": "뒷장 2",
+              "opacity": 0.55,
+              "width": 278,
+              "height": 150,
+              "fill": "#ffffff",
+              "cornerRadius": "$radius-lg"
+            },
+            {
+              "type": "frame",
+              "id": "f7baL",
+              "x": 18,
+              "y": 40,
+              "name": "뒷장 1",
+              "opacity": 0.85,
+              "width": 314,
+              "height": 150,
+              "fill": "#ffffff",
+              "cornerRadius": "$radius-lg"
+            },
+            {
+              "type": "frame",
+              "id": "Y2elgi",
+              "x": 0,
+              "y": 52,
+              "name": "앞장",
+              "width": 350,
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000014",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jxomM",
+                  "name": "출처",
+                  "gap": 5,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EeQsA",
+                      "name": "작품",
+                      "fill": "$primary",
+                      "content": "봄날은 간다",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qS3WQ",
+                      "name": "메타",
+                      "fill": "$ink-tertiary",
+                      "content": "영화 · 2001",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "fmZxT",
+                  "name": "대사",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“어떻게 사랑이 변하니.”",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "T39AdS",
+                  "name": "상황",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "헤어지자는 말 앞에서, 화도 애원도 아닌 한 문장을 말한다.",
+                  "lineHeight": 1.54,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GG4uC",
+          "name": "행동",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            32,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "DAgw7",
+              "name": "시작 버튼",
+              "width": "fill_container",
+              "fill": "$primary-strong",
+              "cornerRadius": "$radius-md",
+              "layout": "vertical",
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vZgYS",
+                  "name": "라벨",
+                  "fill": "#ffffff",
+                  "content": "16강 시작하기",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "MMlEL",
+              "name": "고지",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "대사는 한 줄씩만 인용했어요. 장면 설명은 저희가 적었습니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cl0ra",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "rglcq",
+              "name": "고지",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "acttub — 질문 기반 연기 연습 파트너\n인용된 대사의 저작권은 각 작품에 있습니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "TlJ8A",
+              "name": "인스타 탭영역",
+              "height": 44,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "W1tJlp",
+                  "name": "인스타",
+                  "fill": "$ink-sub",
+                  "content": "만들고 있는 팀 구경하기",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IH7Lt",
+      "x": 470,
+      "y": 741,
+      "name": "새 2 대결",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        24,
+        20,
+        40,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "es8YB",
+          "name": "헤더",
+          "width": "fill_container",
+          "gap": 8,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "INWF5",
+              "name": "브랜드 마크",
+              "width": 28,
+              "height": 28,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 225,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$gradient-start",
+                    "position": 0
+                  },
+                  {
+                    "color": "$gradient-end",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-pill"
+            },
+            {
+              "type": "text",
+              "id": "jLHL2",
+              "name": "워드마크",
+              "fill": "$ink-sub",
+              "content": "acttub",
+              "fontFamily": "$font-canvas",
+              "fontSize": 13,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jzxwy",
+          "name": "진행",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            28,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "NtO7Q",
+              "name": "진행 줄",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K5ukH",
+                  "name": "라운드",
+                  "fill": "$ink",
+                  "content": "16강",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "NYBto",
+                  "name": "카운터",
+                  "fill": "$ink-sub",
+                  "content": "3 / 15",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XdDhi",
+              "name": "진행바 홈",
+              "width": "fill_container",
+              "height": 6,
+              "fill": "$line",
+              "cornerRadius": "$radius-pill",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NByx9",
+                  "name": "진행바 채움",
+                  "width": 70,
+                  "height": 6,
+                  "fill": "$primary-strong",
+                  "cornerRadius": "$radius-pill"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T9znIh",
+          "name": "질문묶음",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            28,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "OZsC8",
+              "name": "질문",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "어느 장면을 연기해보고 싶나요?",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-canvas",
+              "fontSize": 20,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NNJRN",
+          "name": "대결",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            16,
+            0,
+            0,
+            0
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "VcJSH",
+              "name": "카드 A",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000014",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EdHxm",
+                  "name": "출처",
+                  "gap": 5,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Kn1LP",
+                      "name": "작품",
+                      "fill": "$primary",
+                      "content": "봄날은 간다",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SgeDB",
+                      "name": "메타",
+                      "fill": "$ink-tertiary",
+                      "content": "영화 · 2001",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "FMRaC",
+                  "name": "대사",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“어떻게 사랑이 변하니.”",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "cRdUf",
+                  "name": "상황",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "헤어지자는 말 앞에서, 화도 애원도 아닌 한 문장을 말한다.",
+                  "lineHeight": 1.54,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Y0wEF3",
+              "name": "VS 마커",
+              "width": 40,
+              "height": 40,
+              "fill": "$primary-strong",
+              "cornerRadius": "$radius-pill",
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "v9bwuc",
+                  "name": "VS",
+                  "fill": "#ffffff",
+                  "content": "VS",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 0.4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "w64nko",
+              "name": "카드 B",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000014",
+                "offset": {
+                  "x": 0,
+                  "y": 2
+                },
+                "blur": 8
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AAGXq",
+                  "name": "출처",
+                  "gap": 5,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "T0oB5",
+                      "name": "작품",
+                      "fill": "$primary",
+                      "content": "올드보이",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GJ9mk",
+                      "name": "메타",
+                      "fill": "$ink-tertiary",
+                      "content": "영화 · 2003",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "MlaUY",
+                  "name": "대사",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“누구냐 넌.”",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "IgnTY",
+                  "name": "상황",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "정체 모를 상대에게 처음으로 정면으로 묻는 순간.",
+                  "lineHeight": 1.54,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Xo8ty",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "PuEMa",
+              "name": "고지",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "acttub — 질문 기반 연기 연습 파트너\n인용된 대사의 저작권은 각 작품에 있습니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "EJaJV",
+              "name": "인스타 탭영역",
+              "height": 44,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "J6RGnt",
+                  "name": "인스타",
+                  "fill": "$ink-sub",
+                  "content": "만들고 있는 팀 구경하기",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ES0uk",
+      "x": 940,
+      "y": 1304,
+      "name": "새 3 결과",
+      "width": 390,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        24,
+        20,
+        40,
+        20
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "MQqS0",
+          "name": "헤더",
+          "width": "fill_container",
+          "gap": 8,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bEZmN",
+              "name": "브랜드 마크",
+              "width": 28,
+              "height": 28,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 225,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$gradient-start",
+                    "position": 0
+                  },
+                  {
+                    "color": "$gradient-end",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-pill"
+            },
+            {
+              "type": "text",
+              "id": "L34CX",
+              "name": "워드마크",
+              "fill": "$ink-sub",
+              "content": "acttub",
+              "fontFamily": "$font-canvas",
+              "fontSize": 13,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cNn5f",
+          "name": "우승",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            32,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Z0LD6L",
+              "name": "눈썹",
+              "fill": "$primary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "끝까지 남긴 장면",
+              "fontFamily": "$font-canvas",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "JI5bd",
+              "name": "우승 표식",
+              "width": "fill_container",
+              "stroke": "$primary",
+              "strokeWidth": {
+                "left": 3
+              },
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                2,
+                0,
+                2,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k2nbn",
+                  "name": "대사",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“난 오늘만 산다.”",
+                  "lineHeight": 1.36,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.44
+                },
+                {
+                  "type": "text",
+                  "id": "x9ioG",
+                  "name": "출처",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "아저씨 · 영화 · 2010",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "nKmrE",
+              "name": "상황",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "잃을 것이 없는 사람이, 잃을 것이 많은 사람들에게 하는 경고.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-canvas",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Q7Yic",
+          "name": "되비춤 카드",
+          "width": "fill_container",
+          "fill": "$surface",
+          "cornerRadius": "$radius-lg",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000014",
+            "offset": {
+              "x": 0,
+              "y": 2
+            },
+            "blur": 8
+          },
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "m6bySP",
+              "name": "되비춤",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "상대를 정면으로 마주 서는 장면이 남았어요.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-canvas",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "DQGY3",
+              "name": "질문묶음",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yWbNP",
+                  "name": "질문라벨",
+                  "fill": "$ink-tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "이런 장면 앞에서 해볼 만한 질문",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "MuLfh",
+                  "name": "질문 1",
+                  "width": "fill_container",
+                  "fill": "$surface-sub",
+                  "cornerRadius": "$radius-md",
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A8UTQi",
+                      "name": "번호",
+                      "fill": "$primary",
+                      "content": "1",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y62GJ",
+                      "name": "문장",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "이 인물은 이 순간 무엇을 걸고 있을까요?",
+                      "lineHeight": 1.6,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q3aZoP",
+                  "name": "질문 2",
+                  "width": "fill_container",
+                  "fill": "$surface-sub",
+                  "cornerRadius": "$radius-md",
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wKYuN",
+                      "name": "번호",
+                      "fill": "$primary",
+                      "content": "2",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q5RJZK",
+                      "name": "문장",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "상대의 어떤 반응을 가장 두려워하고 있을까요?",
+                      "lineHeight": 1.6,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mcLtZ",
+                  "name": "질문 3",
+                  "width": "fill_container",
+                  "fill": "$surface-sub",
+                  "cornerRadius": "$radius-md",
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dSkHJ",
+                      "name": "번호",
+                      "fill": "$primary",
+                      "content": "3",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "X2iCX",
+                      "name": "문장",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "첫마디를 꺼내기 직전, 이 인물의 호흡은 어땠을까요?",
+                      "lineHeight": 1.6,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "s8bpQx",
+              "name": "소유",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "답은 언제나 연기하는 사람의 것이에요.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-canvas",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e7bAE",
+          "name": "다음",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            32,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "r1K8Y",
+              "name": "다리",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "고른 건 장면이에요. 그 안에서 무엇을 할지는, 아직 안 골랐어요.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-canvas",
+              "fontSize": 15,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "k4WYJ",
+              "name": "버튼묶음",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Z37K2",
+                  "name": "코어 CTA",
+                  "width": "fill_container",
+                  "fill": "$primary-strong",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KMjFK",
+                      "name": "라벨",
+                      "fill": "#ffffff",
+                      "content": "acttub에서 질문으로 찾기 →",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cpbvq",
+                  "name": "저장",
+                  "width": "fill_container",
+                  "fill": "$primary-soft",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C2wRd",
+                      "name": "라벨",
+                      "fill": "$primary-strong",
+                      "content": "우승 장면 이미지로 저장",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JBrdP",
+                  "name": "공유",
+                  "width": "fill_container",
+                  "fill": "$primary-soft",
+                  "cornerRadius": "$radius-md",
+                  "layout": "vertical",
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XYLU9",
+                      "name": "라벨",
+                      "fill": "$primary-strong",
+                      "content": "친구에게 링크 보내기",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dwjuo",
+              "name": "다시 탭영역",
+              "width": "fill_container",
+              "height": 44,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eEsBY",
+                  "name": "다시",
+                  "fill": "$ink-sub",
+                  "content": "다시 하기",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Nql9S",
+          "name": "푸터",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            40,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "g6h9P",
+              "name": "고지",
+              "fill": "$ink-sub",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "acttub — 질문 기반 연기 연습 파트너\n인용된 대사의 저작권은 각 작품에 있습니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-canvas",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "mLEvh",
+              "name": "인스타 탭영역",
+              "height": 44,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZrfBG",
+                  "name": "인스타",
+                  "fill": "$ink-sub",
+                  "content": "만들고 있는 팀 구경하기",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "R1s8jX",
+      "x": 940,
+      "y": 2496,
+      "name": "새 4 대결 desktop 1024",
+      "width": 1024,
+      "fill": "$neutral",
+      "layout": "vertical",
+      "padding": [
+        32,
+        40,
+        40,
+        40
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "sIwbK",
+          "name": "기둥",
+          "width": 760,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "RShMQ",
+              "name": "헤더",
+              "width": "fill_container",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "S68UaD",
+                  "name": "브랜드 마크",
+                  "width": 28,
+                  "height": 28,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 225,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$gradient-start",
+                        "position": 0
+                      },
+                      {
+                        "color": "$gradient-end",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": "$radius-pill"
+                },
+                {
+                  "type": "text",
+                  "id": "IDGLH",
+                  "name": "워드마크",
+                  "fill": "$ink-sub",
+                  "content": "acttub",
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "y4CCl",
+              "name": "진행",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                28,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Q5Bdab",
+                  "name": "진행 줄",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tJ99l",
+                      "name": "라운드",
+                      "fill": "$ink",
+                      "content": "16강",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gBnAF",
+                      "name": "카운터",
+                      "fill": "$ink-sub",
+                      "content": "3 / 15",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wWUPr",
+                  "name": "진행바 홈",
+                  "width": "fill_container",
+                  "height": 6,
+                  "fill": "$line",
+                  "cornerRadius": "$radius-pill",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "s8x7E",
+                      "name": "진행바 채움",
+                      "width": 152,
+                      "height": 6,
+                      "fill": "$primary-strong",
+                      "cornerRadius": "$radius-pill"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "J8Qh0",
+              "name": "질문묶음",
+              "width": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                28,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gAnxf",
+                  "name": "질문",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "어느 장면을 연기해보고 싶나요?",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 22,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KmuTd",
+              "name": "대결",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                20,
+                0,
+                0,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "b0cihx",
+                  "name": "카드 A",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000014",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "G6dQ1",
+                      "name": "출처",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FyshO",
+                          "name": "작품",
+                          "fill": "$primary",
+                          "content": "봄날은 간다",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Orwfn",
+                          "name": "메타",
+                          "fill": "$ink-tertiary",
+                          "content": "영화 · 2001",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "LjIRv",
+                      "name": "대사",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“어떻게 사랑이 변하니.”",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YAa9j",
+                      "name": "상황",
+                      "fill": "$ink-sub",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "헤어지자는 말 앞에서, 화도 애원도 아닌 한 문장을 말한다.",
+                      "lineHeight": 1.54,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b7ZaSq",
+                  "name": "VS 마커",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$primary-strong",
+                  "cornerRadius": "$radius-pill",
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UnO0t",
+                      "name": "VS",
+                      "fill": "#ffffff",
+                      "content": "VS",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.4
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "s2KZL",
+                  "name": "카드 B",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000014",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "N5xRHB",
+                      "name": "출처",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LPGEq",
+                          "name": "작품",
+                          "fill": "$primary",
+                          "content": "올드보이",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iwrFT",
+                          "name": "메타",
+                          "fill": "$ink-tertiary",
+                          "content": "영화 · 2003",
+                          "fontFamily": "$font-canvas",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "yIjT1",
+                      "name": "대사",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“누구냐 넌.”",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WO58V",
+                      "name": "상황",
+                      "fill": "$ink-sub",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "정체 모를 상대에게 처음으로 정면으로 묻는 순간.",
+                      "lineHeight": 1.54,
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bJ9Vw",
+              "name": "푸터",
+              "width": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                40,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Cm9Y5",
+                  "name": "고지",
+                  "fill": "$ink-sub",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "acttub — 질문 기반 연기 연습 파트너\n인용된 대사의 저작권은 각 작품에 있습니다.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-canvas",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "A9H1FI",
+                  "name": "인스타 탭영역",
+                  "height": 44,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Akabh",
+                      "name": "인스타",
+                      "fill": "$ink-sub",
+                      "content": "만들고 있는 팀 구경하기",
+                      "fontFamily": "$font-canvas",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "primary": {
+      "type": "color",
+      "value": "#0a79fb"
+    },
+    "primary-strong": {
+      "type": "color",
+      "value": "#0355f1"
+    },
+    "primary-deep": {
+      "type": "color",
+      "value": "#0243c4"
+    },
+    "primary-soft": {
+      "type": "color",
+      "value": "#e8f3ff"
+    },
+    "primary-soft-hover": {
+      "type": "color",
+      "value": "#d8ebff"
+    },
+    "gradient-start": {
+      "type": "color",
+      "value": "#44c0fd"
+    },
+    "gradient-end": {
+      "type": "color",
+      "value": "#0355f1"
+    },
+    "neutral": {
+      "type": "color",
+      "value": "#f2f4f6"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "surface-sub": {
+      "type": "color",
+      "value": "#f9fafb"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#191f28"
+    },
+    "ink-sub": {
+      "type": "color",
+      "value": "#4e5968"
+    },
+    "ink-tertiary": {
+      "type": "color",
+      "value": "#6b7684"
+    },
+    "placeholder": {
+      "type": "color",
+      "value": "#8b95a1"
+    },
+    "line": {
+      "type": "color",
+      "value": "#e5e8eb"
+    },
+    "success": {
+      "type": "color",
+      "value": "#03b26c"
+    },
+    "danger": {
+      "type": "color",
+      "value": "#f04452"
+    },
+    "warning": {
+      "type": "color",
+      "value": "#fe9800"
+    },
+    "type-01": {
+      "type": "color",
+      "value": "#ebf4ff"
+    },
+    "type-02": {
+      "type": "color",
+      "value": "#d3e7fe"
+    },
+    "type-03": {
+      "type": "color",
+      "value": "#bbdafe"
+    },
+    "type-04": {
+      "type": "color",
+      "value": "#a4cdfe"
+    },
+    "type-05": {
+      "type": "color",
+      "value": "#8cc0fd"
+    },
+    "type-06": {
+      "type": "color",
+      "value": "#74b3fd"
+    },
+    "type-07": {
+      "type": "color",
+      "value": "#5ca6fc"
+    },
+    "type-08": {
+      "type": "color",
+      "value": "#4499fc"
+    },
+    "type-09": {
+      "type": "color",
+      "value": "#2c8cfc"
+    },
+    "type-10": {
+      "type": "color",
+      "value": "#046eea"
+    },
+    "type-11": {
+      "type": "color",
+      "value": "#0362d2"
+    },
+    "type-12": {
+      "type": "color",
+      "value": "#0357ba"
+    },
+    "type-13": {
+      "type": "color",
+      "value": "#034ca2"
+    },
+    "type-14": {
+      "type": "color",
+      "value": "#02418a"
+    },
+    "type-15": {
+      "type": "color",
+      "value": "#023672"
+    },
+    "type-16": {
+      "type": "color",
+      "value": "#012b5b"
+    },
+    "font-main": {
+      "type": "string",
+      "value": "Pretendard"
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 12
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 16
+    },
+    "radius-xl": {
+      "type": "number",
+      "value": 20
+    },
+    "radius-pill": {
+      "type": "number",
+      "value": 9999
+    },
+    "space-xs": {
+      "type": "number",
+      "value": 4
+    },
+    "space-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "space-md": {
+      "type": "number",
+      "value": 16
+    },
+    "space-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "space-xl": {
+      "type": "number",
+      "value": 40
+    },
+    "space-xxl": {
+      "type": "number",
+      "value": 64
+    },
+    "font-canvas": {
+      "type": "string",
+      "value": "Noto Sans KR"
+    }
+  },
+  "fileToken": "a2c049f2-2fd3-467f-916b-be5e95728876"
+}

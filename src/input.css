@@ -5,70 +5,23 @@
 @source "../index.html";
 @source "../app.js";
 
-/* ── brand/DESIGN.md 토큰 → Tailwind 테마 ──────────────────────────────
-   내부 디자인 정본에서 생성한 테마를 그대로 옮긴 것이다.
-   값을 바꿀 일이 생기면 정본을 고치고 다시 생성해서 이 블록을 갈아끼운다.
-   이름을 프로젝트 사정에 맞춰 바꾸지 않는다 — 프로젝트마다 다른 이름을 쓰면 정본과 대조할 수 없다.
-   라이트 전용이다. 어두운 배경을 만들지 않는다. */
+/* ── brand/ 생성물 ────────────────────────────────────────────────────
+   tools/subproject-sync-brand.py가 넣는다. src/brand/ 안의 파일을 직접 고치지 않는다 —
+   값을 바꾸려면 brand/DESIGN.md를 고치고 다시 생성한 뒤 동기화한다.
+
+   tailwind-starter.css = 색·타이포·radius·spacing 토큰 + 티어 경계(tablet 600 / desktop 1024).
+                          Tailwind 기본 스케일(sm·md·lg…)은 지워져 있다.
+   responsive-base.css  = 3단 티어 셸(.tier-root/.tier-shell) + 기기 하드닝.
+                          safe-area, 44px 탭 타겟, keep-all, reduced-motion이 여기서 온다.
+   전에는 @theme 블록을 손으로 옮겨 적었다. 그러면 정본이 바뀌어도 여기가 안 따라오고,
+   티어 경계가 통째로 빠져 데스크톱에서 480px 기둥으로 남았다. */
+@import "./brand/tailwind-starter.css";
+@import "./brand/responsive-base.css";
+
+/* 생성물에 없는 것만 여기서 보탠다. 카드 그림자는 DESIGN.md `## Elevation & Depth`의 값인데
+   brand-tokens-export.py가 아직 그림자를 내보내지 않는다. 색·타이포·간격은 여기 쓰지 않는다 —
+   생성물에 있는 것을 여기서 덮으면 정본과 갈라진다. */
 @theme {
-  --color-primary: #0a79fb;
-  --color-primary-strong: #0355f1;
-  --color-primary-deep: #0243c4;
-  --color-primary-soft: #e8f3ff;
-  --color-primary-soft-hover: #d8ebff;
-  --color-gradient-start: #44c0fd;
-  --color-gradient-end: #0355f1;
-  --color-neutral: #f2f4f6;
-  --color-surface: #ffffff;
-  --color-surface-sub: #f9fafb;
-  --color-ink: #191f28;
-  --color-ink-sub: #4e5968;
-  --color-ink-tertiary: #6b7684;
-  --color-placeholder: #8b95a1;
-  --color-line: #e5e8eb;
-
-  --font-sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
-
-  --text-h1: 1.875rem;
-  --text-h1--font-weight: 700;
-  --text-h1--letter-spacing: -0.02em;
-  --text-h1--line-height: 1.33;
-  --text-h2: 1.375rem;
-  --text-h2--font-weight: 700;
-  --text-h2--letter-spacing: -0.02em;
-  --text-h2--line-height: 1.36;
-  --text-h3: 1.25rem;
-  --text-h3--font-weight: 600;
-  --text-h3--line-height: 1.4;
-  --text-subtitle: 1rem;
-  --text-subtitle--font-weight: 600;
-  --text-subtitle--line-height: 1.5;
-  --text-body-lg: 1rem;
-  --text-body-lg--font-weight: 500;
-  --text-body-lg--line-height: 1.6;
-  --text-body-md: 0.9375rem;
-  --text-body-md--font-weight: 500;
-  --text-body-md--line-height: 1.6;
-  --text-body-sm: 0.8125rem;
-  --text-body-sm--font-weight: 500;
-  --text-body-sm--line-height: 1.54;
-  --text-label: 0.75rem;
-  --text-label--font-weight: 600;
-  --text-label--line-height: 1.5;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-pill: 9999px;
-
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 40px;
-  --spacing-xxl: 64px;
-
   --shadow-card: 0 2px 8px rgb(0 0 0 / 0.08);
 }
 
@@ -117,18 +70,37 @@
 
 @layer components {
   .btn {
-    @apply tappable block w-full rounded-md border-0 py-[14px] px-md text-subtitle font-sans cursor-pointer text-center;
+    @apply tappable block w-full rounded-md border-0 py-md px-md text-subtitle font-sans cursor-pointer text-center;
   }
   .btn-primary { @apply bg-primary-strong text-white; }
   .btn-primary:hover { @apply bg-primary-deep; }
 
-  /* 코어로 잇는 버튼 자리. 채워진 파랑 두 개를 나란히 두면 위계가 사라져
-     어느 것도 주된 행동으로 읽히지 않는다 — 그래서 테두리 한 겹으로 격을 나눈다. */
-  .btn-outline { @apply bg-surface text-primary-strong; box-shadow: inset 0 0 0 1.5px var(--color-primary); }
-  .btn-outline:hover { @apply bg-primary-soft; }
-
+  /* 보조 행동(저장·공유). 결과 화면의 고강조는 코어로 가는 버튼 하나뿐이다 —
+     채워진 파랑을 여러 개 두면 어느 것도 주된 행동으로 읽히지 않는다. */
   .btn-secondary { @apply bg-primary-soft text-primary-strong; }
   .btn-secondary:hover { @apply bg-primary-soft-hover; }
+
+  /* 3순위 행동(다시 하기). 버튼 모양을 벗기고 탭 영역만 44px로 남긴다. */
+  .btn-quiet {
+    @apply tappable inline-flex min-h-[44px] items-center justify-center px-md
+           bg-transparent border-0 text-body-sm text-ink-sub underline cursor-pointer font-sans;
+  }
+  .btn-quiet:hover { @apply text-ink; }
+
+  /* 대결의 앵커. chip이 아니다 — chip은 정본에서 시스템 상태 표시 전용이라
+     대결 마커로 쓰면 그 규정이 흐려진다. 흰 글자가 올라가므로 면은 primary-strong. */
+  .vs-mark {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-pill
+           bg-primary-strong text-label font-bold text-white;
+  }
+
+  /* 우승 장면 표식. 정본의 자기진단 문장 패턴을 그대로 쓴다 —
+     글자를 키워서가 아니라 맨 위 자리와 왼쪽 세로선으로 주인공을 만든다.
+     카드 보더 금지의 예외다(카드가 아니라 표식이다). */
+  .winner-mark {
+    @apply pl-md;
+    border-left: 3px solid var(--color-primary);
+  }
 }
 
 /* ── 진입 모션 ────────────────────────────────────────────────────────

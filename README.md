@@ -24,7 +24,9 @@ index.html      화면 골격 (문장 없음)
 copy.js         사용자에게 보이는 모든 문장
 data.js         장면 16개
 app.js          화면 전환·토너먼트·공유
-src/input.css   Tailwind 입력 + 브랜드 토큰 + @font-face
+src/input.css   Tailwind 입력 + @font-face + 이 앱만의 컴포넌트
+src/brand/      브랜드 정본 사본 — 직접 고치지 않는다 (토큰·티어 셸·기기 하드닝)
+design/         Pen 캔버스 (.pen) — 화면 목업
 styles.css      생성물 — 직접 고치지 않는다
 fonts/          생성물 — 쓰인 글자만 담은 Pretendard woff2 3굵기
 vercel.json     경로 → index.html (catch-all을 쓰지 않는다)
@@ -37,6 +39,7 @@ vercel.json     경로 → index.html (catch-all을 쓰지 않는다)
 | `src/input.css` 또는 마크업 클래스 | `npm run css` |
 | **문구(`copy.js`·`data.js`·`index.html`)** | `build-fonts.py` — 안 돌리면 새 글자가 시스템 폰트로 렌더된다 |
 | 경로를 추가 | `vercel.json`의 `rewrites` |
+| 화면 구조·여백 | `uv run tools/device-matrix.py subpro/pick` (볼트에서) — 20기기 통과가 배포 조건 |
 
 `styles.css`와 `fonts/`는 **커밋된 생성물**이다. Vercel에 빌드 단계가 없어서, 빌드를 잊으면 옛것이 배포된다.
 
