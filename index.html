@@ -135,8 +135,22 @@
       <span data-copy="footer.line2"></span>
     </p>
     <a id="link-insta" class="inline-flex min-h-[44px] items-center text-body-sm font-semibold text-primary-strong no-underline"
-       href="https://www.instagram.com/acttub_com" target="_blank" rel="noopener"
+       href="https://www.instagram.com/acttub_com" rel="noopener"
        data-copy="footer.instagram"></a>
+    <script>
+    (function () {
+      var a = document.getElementById("link-insta");
+      var ua = navigator.userAgent || "";
+      if (!/Instagram|FBAN|FBAV|FB_IAB|Threads/i.test(ua)) {
+        a.target = "_blank";
+        return;
+      }
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        location.replace(a.href);
+      });
+    })();
+    </script>
   </footer>
 
 </div>

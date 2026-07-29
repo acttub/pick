@@ -7,11 +7,88 @@
 (function () {
   "use strict";
 
+  var CORE_TRACK = "https://script.google.com/macros/s/AKfycbxmvQWyu-kslgIbVshJolG2KXV_omgT_vcUpmwJljvvYE8MkwUug-WGEhZmWUdU2ErK/exec";
+  var UPSTREAM_KEY = "pick_inbound_utm";
+
+  /* Preserve the first-touch UTM set for this tab. An empty string is also a
+   * captured value, so later navigation cannot replace a direct first touch. */
+  (function captureInboundUtm() {
+    try {
+      if (sessionStorage.getItem(UPSTREAM_KEY) !== null) return;
+      var inbound = new URLSearchParams();
+      new URLSearchParams(location.search).forEach(function (value, name) {
+        if (/^utm_/i.test(name)) inbound.append(name.toLowerCase(), value);
+      });
+      sessionStorage.setItem(UPSTREAM_KEY, inbound.toString());
+    } catch (e) { /* Keep the app usable when a webview blocks storage. */ }
+  })();
+
+  function inboundUpstream() {
+    try {
+      return new URLSearchParams(sessionStorage.getItem(UPSTREAM_KEY) || "").get("utm_source") || "direct";
+    } catch (e) {
+      return "direct";
+    }
+  }
+
+  function sendToSheet(payload) {
+    // Do not mix local or preview checks into production analytics.
+    if (!/(^|\.)acttub\.com$/.test(location.hostname)) return;
+    try {
+      var body = JSON.stringify(payload);
+      var blob = new Blob([body], { type: "text/plain;charset=UTF-8" });
+      if (!(navigator.sendBeacon && navigator.sendBeacon(CORE_TRACK, blob))) {
+        fetch(CORE_TRACK, { method: "POST", mode: "no-cors", keepalive: true, body: body })
+          .catch(function () {});
+      }
+    } catch (e) { /* Analytics must never block the user flow. */ }
+  }
+
+  function trackCore(href) {
+    var q = href.indexOf("?");
+    sendToSheet({
+      type: "click",
+      at: new Date().toISOString(),
+      from: "worldcup",
+      src: q < 0 ? "" : href.slice(q),
+      upstream: inboundUpstream(),
+      ref: location.origin,
+      click_id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7)
+    });
+  }
+
+  var missing = [];
+  if (!window.COPY) missing.push("COPY");
+  if (!Array.isArray(window.SCENES)) missing.push("SCENES");
+  if (missing.length) {
+    console.warn("Pick initialization aborted: missing " + missing.join(", ") + ".");
+    sendToSheet({
+      type: "event",
+      app: "pick",
+      name: "dependency_load_failed",
+      at: new Date().toISOString(),
+      missing: missing.join(","),
+      upstream: inboundUpstream()
+    });
+    // 백지로 두지 않는다. 이 문구는 copy.js에 두면 안 된다 —
+    // copy.js가 못 불러와진 경우가 바로 여기라서 그때 문구까지 같이 사라진다.
+    var shell = document.querySelector(".tier-shell");
+    if (shell) {
+      var box = document.createElement("div");
+      box.className = "mt-xl text-body-md text-ink-sub";
+      box.setAttribute("role", "alert");
+      box.textContent = "화면을 불러오지 못했어요. 잠시 뒤에 새로고침해 주세요.";
+      shell.appendChild(box);
+    }
+    return;
+  }
+
   var C = window.COPY;
   var SCENES = window.SCENES;
 
-  var CORE_URL = "https://link.acttub.com/go?from=worldcup"
-    + "&utm_source=worldcup&utm_medium=result&utm_campaign=worldcup_seed_2607&utm_content=core";
+  var CORE_URL = "https://acttub.com/?utm_source=worldcup"
+    + "&utm_medium=result&utm_campaign=worldcup_seed_2607&utm_content=core"
+    + "&utm_term=" + encodeURIComponent(inboundUpstream());
 
   var ROUND_PATH = { 16: "/r16", 8: "/r8", 4: "/r4", 2: "/final" };
 
@@ -352,6 +429,7 @@
   $("btn-save").addEventListener("click", saveImage);
   $("btn-share").addEventListener("click", shareLink);
   $("btn-retry").addEventListener("click", function () { go("/", true); startGame(); });
+  $("btn-core").addEventListener("click", function () { trackCore(this.href); });
 
   // 뒤로가기는 앞 라운드로 돌아가지 않고 시작으로 나간다(진행 상태를 보관하지 않으므로).
   window.addEventListener("popstate", resolveEntry);

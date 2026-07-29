@@ -18,13 +18,6 @@
 @import "./brand/tailwind-starter.css";
 @import "./brand/responsive-base.css";
 
-/* 생성물에 없는 것만 여기서 보탠다. 카드 그림자는 DESIGN.md `## Elevation & Depth`의 값인데
-   brand-tokens-export.py가 아직 그림자를 내보내지 않는다. 색·타이포·간격은 여기 쓰지 않는다 —
-   생성물에 있는 것을 여기서 덮으면 정본과 갈라진다. */
-@theme {
-  --shadow-card: 0 2px 8px rgb(0 0 0 / 0.08);
-}
-
 /* ── Pretendard ───────────────────────────────────────────────────────
    index.html·copy.js·data.js에 실제로 쓰인 글자만 서브셋한다.
    문구를 고치면 build-fonts.py를 다시 돌린다 — 안 돌리면 새 글자가 시스템 폰트로 렌더된다.
@@ -71,7 +64,7 @@
 @layer components {
   /* ── 상단바 ──
      acttub 가족임을 알리는 첫 신호다. 흰 면 위 파란 워드마크 —
-     `planning/웹/코어웹-재설계-2026-07-27`의 .topbar/.wordmark를 그대로 옮겼다.
+     코어웹 재설계 시안에서 확정된 .topbar/.wordmark 패턴을 그대로 옮겼다.
      그라데이션은 쓰지 않는다: DESIGN.md `## Colors`에서 그라데이션은
      로고·아바타·스플래시 같은 브랜드 '표면' 전용이고, 헤더 표식은 워드마크다.
      폭·여백은 .tier-shell과 같은 변수를 써서 아래 콘텐츠와 왼쪽 선이 맞는다. */

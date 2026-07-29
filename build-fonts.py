@@ -29,7 +29,9 @@ SRC_DIR = pathlib.Path(os.environ.get("PRETENDARD_DIR") or (HERE / ".." / ".." /
 OUT_DIR = HERE / "fonts"
 
 # 사람이 읽는 문장이 들어 있는 파일 전부
-TEXT_FILES = ["index.html", "copy.js", "data.js"]
+# app.js도 훑는다 — copy.js를 못 불러왔을 때 띄우는 문구가 app.js 안에 있고,
+# 그 문구는 copy.js에 둘 수 없다(그때 같이 사라지므로).
+TEXT_FILES = ["index.html", "copy.js", "data.js", "app.js"]
 
 # CSS font-weight -> 원본 파일
 WEIGHTS = {
