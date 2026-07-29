@@ -55,6 +55,11 @@
       ref: location.origin,
       click_id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7)
     });
+    // 시트와 나란히 GA로도 보낸다. 시트는 클릭 수를 세고, GA는 도착 이후까지 세션으로 잇는다.
+    // ⚠️ 잇는 건 acttub.com에도 같은 GA가 붙은 뒤부터다 — 2026-07-29 현재 코어는 미계측이라
+    // 지금 이 이벤트는 "여기서 눌렀다"까지만 남는다(팀에 계측 요청 대기 중).
+    // gtag는 프로덕션 호스트에서만 정의된다(index.html의 가드).
+    if (window.gtag) window.gtag("event", "acttub_cta", { from: "worldcup" });
   }
 
   var missing = [];
