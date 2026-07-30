@@ -44,6 +44,16 @@
     } catch (e) { /* Analytics must never block the user flow. */ }
   }
 
+  function trackEvent(name) {
+    if (!/(^|\.)acttub\.com$/.test(location.hostname)) return;
+    sendToSheet({
+      type: "event",
+      app: "pick",
+      name: name,
+      at: new Date().toISOString()
+    });
+  }
+
   function trackCore(href) {
     var q = href.indexOf("?");
     sendToSheet({
@@ -62,19 +72,14 @@
     if (window.gtag) window.gtag("event", "acttub_cta", { from: "worldcup" });
   }
 
+  trackEvent("landing_view");
+
   var missing = [];
   if (!window.COPY) missing.push("COPY");
   if (!Array.isArray(window.SCENES)) missing.push("SCENES");
   if (missing.length) {
     console.warn("Pick initialization aborted: missing " + missing.join(", ") + ".");
-    sendToSheet({
-      type: "event",
-      app: "pick",
-      name: "dependency_load_failed",
-      at: new Date().toISOString(),
-      missing: missing.join(","),
-      upstream: inboundUpstream()
-    });
+    trackEvent("dependency_load_failed");
     // 백지로 두지 않는다. 이 문구는 copy.js에 두면 안 된다 —
     // copy.js가 못 불러와진 경우가 바로 여기라서 그때 문구까지 같이 사라진다.
     var shell = document.querySelector(".tier-shell");
@@ -200,6 +205,7 @@
   function startGame() {
     pool = playable(SCENES);
     if (pool.length < 2) { console.error("장면이 2개 미만이라 시작할 수 없다."); return; }
+    trackEvent("game_start");
     nextPool = [];
     matchIndex = 0;
     champion = null;
@@ -207,7 +213,13 @@
     doneMatches = 0;
     go(ROUND_PATH[pool.length]);
     show("screen-match");
+    trackRound(pool.length);
     renderMatch();
+  }
+
+  function trackRound(size) {
+    var eventName = { 8: "round_8", 4: "round_4", 2: "round_final" }[size];
+    if (eventName) trackEvent(eventName);
   }
 
   function renderMatch() {
@@ -267,6 +279,7 @@
     nextPool = [];
     matchIndex = 0;
     go(ROUND_PATH[pool.length]);   // 라운드가 넘어갈 때만 경로가 바뀐다 = 단계별 페이지뷰
+    trackRound(pool.length);
     renderMatch();
   }
 
@@ -289,6 +302,7 @@
 
     go("/result/" + RESULT_PATH[scene.tag]);
     show("screen-result");
+    trackEvent("result_view");
   }
 
   // ── 공유 ───────────────────────────────────────────────────────────
@@ -431,10 +445,23 @@
   $("btn-start").addEventListener("click", startGame);
   $("card-a").addEventListener("click", function () { pick("a"); });
   $("card-b").addEventListener("click", function () { pick("b"); });
-  $("btn-save").addEventListener("click", saveImage);
-  $("btn-share").addEventListener("click", shareLink);
-  $("btn-retry").addEventListener("click", function () { go("/", true); startGame(); });
-  $("btn-core").addEventListener("click", function () { trackCore(this.href); });
+  $("btn-save").addEventListener("click", function () {
+    trackEvent("save_click");
+    saveImage();
+  });
+  $("btn-share").addEventListener("click", function () {
+    trackEvent("share_click");
+    shareLink();
+  });
+  $("btn-retry").addEventListener("click", function () {
+    trackEvent("retry");
+    go("/", true);
+    startGame();
+  });
+  $("btn-core").addEventListener("click", function () {
+    trackCore(this.href);
+    trackEvent("cta_click");
+  });
 
   // 뒤로가기는 앞 라운드로 돌아가지 않고 시작으로 나간다(진행 상태를 보관하지 않으므로).
   window.addEventListener("popstate", resolveEntry);
